@@ -5,18 +5,6 @@
  *version v12.16.1
  */
 
-/**
- * @param menu odpowiada elementom <div>  z index.html o nazwie klasy "menu"
- * @param numberButton odpowiada elementowi <div>  z index.html o identyfikatorze "phonebuttondiv"
- * @param body odpowiada elementowi <body>
- *
- */
-const menu  = document.getElementsByClassName("menu");
-const numberButton = document.getElementById("phonebuttondiv");
-const body = document.getElementById("body");
-const displayingInfoFromMenu = document.getElementsByClassName("info");
-const exitButton = document.getElementsByClassName("exitbutton");
-const cont = document.getElementById("container");
 
 /**
  *
@@ -28,7 +16,7 @@ const cont = document.getElementById("container");
  *
  */
 
-function DisplayMenu(menu , button) {
+function DisplayMenu(menu, button) {
     this.menu = menu;
     this.button = button;
     /**
@@ -37,7 +25,7 @@ function DisplayMenu(menu , button) {
      * monitora czy tez nie
      */
     this.checkCorrectSize = function () {
-        return window.innerWidth >= screen.width *0.8;
+        return window.innerWidth >= screen.width * 0.8;
     };
 
     /**
@@ -45,14 +33,13 @@ function DisplayMenu(menu , button) {
      */
     this.hideOrDisplay = function () {
         let i;
-        if(!this.checkCorrectSize()){
-            for(i = 0; i<menu.length ; i++){
+        if (!this.checkCorrectSize()) {
+            for (i = 0; i < menu.length; i++) {
                 this.menu[i].style.display = "none";
             }
             this.button.style.display = "none";
-        }
-        else {
-            for(i =0; i<menu.length ; i++){
+        } else {
+            for (i = 0; i < menu.length; i++) {
                 this.menu[i].style.display = "";
             }
             this.button.style.display = "";
@@ -60,43 +47,120 @@ function DisplayMenu(menu , button) {
     }
 }
 
-function DisplayOrHideMenuFrames(menu, displaydiv,exit,container) {
+/**
+ *
+ * @param menu  tablice elementów odpowiadających przyciskom w menu
+ * @param displaydiv  elementy odpowiadjące wyswietlanym oknom po wciśnięciu przycisku menu
+ * @param exit  element odpowiedzialny za wyłącznie okienka włączengo przez przycisk z menu
+ * @param container <div> container
+ * @constructor ustawia przysłane elementy
+ *
+ * Zadaniem klasy jest obsługa zdarzeń menu
+ *
+ */
+
+function DisplayOrHideMenuFrames(menu, displaydiv, exit, container) {
     this.menu = menu;
     this.displaydiv = displaydiv;
     this.exit = exit;
     this.container = container;
     const self = this;
 
+    /**
+     * showframe:
+     * - wyśiwtla odpowiednie okienko po kliknieciu jednego z przycisków menu (displaydiv)
+     * - zwieeksza kontrast pomiedzy wyświetlanym okienkiem a tłem
+     * - pozbawia przysików menu ich funkcjoinalności
+     */
+
     this.showFrame = function (num) {
-        this.menu[num].onclick = function () {
-            self.displaydiv[num].style.display = "block";
-            self.container.style.opacity= "0.6";
+        this.displaydiv[num].style.display = "block";
+        this.container.style.opacity = "0.6";
+
+        for (let i = 0; i < this.menu.length; i++) {
+            this.menu[i].onclick = null;
+            this.menu[i].style.pointerEvents = "none";
         }
     };
 
-    this.hideFrame = function (num) {
+    /**
+     * exitFrame:
+     * - zamyka wyświetlane okienko
+     * - przywraca odpowiedni kontrast tła
+     * - przywraca funkcjonalność przyciskom menu
+     */
+
+    this.exitFrame = function (num) {
+        this.displaydiv[num].style.display = "none";
+        this.container.style.opacity = "unset";
+
+        for (let i = 0; i < this.menu.length; i++) {
+            this.menu[i].onclick = function () {
+                self.showFrame(i);
+            };
+            self.menu[i].style.pointerEvents = "auto";
+        }
+
+    };
+
+    /**
+     * showCurrentFrame wywołuje funkję showFrame dla przycisków menu
+     */
+
+    this.showCurrentFrame = function (num) {
+        this.menu[num].onclick = function () {
+            self.showFrame(num)
+        }
+    };
+
+    /**
+     * exitCurrentFrame wywołuje funkcję exitFrame dla przycisków exit
+     */
+
+    this.exitCurrentFrame = function (num) {
         this.exit[num].onclick = function () {
-            self.displaydiv[num].style.display = "none";
-            self.container.style.opacity= "unset";
+            self.exitFrame(num);
         };
     };
 
-    this.showOrHideFrame = function () {
-        for (let i = 0 ; i < menu.length ; i++){
-            this.showFrame(i);
-            this.hideFrame(i)
+
+    this.showOrExitFrame = function () {
+        for (let i = 0; i < this.menu.length; i++) {
+            this.showCurrentFrame(i);
+            this.exitCurrentFrame(i)
         }
     };
 
 }
 
-const dispmenu = new DisplayMenu(menu,numberButton);
-const display =new DisplayOrHideMenuFrames(menu, displayingInfoFromMenu,exitButton,cont);
-display.showOrHideFrame();
+/**
+ * @param menu odpowiada elementom <div>  z index.html o nazwie klasy "menu"
+ * @param numberButtonDiv odpowiada elementowi <div>  z index.html o identyfikatorze "phonebuttondiv"
+ * @param body odpowiada elementowi <body>
+ * @param displayingInfoFromMenu odpowiada pojawiającym się okienkom po wcisnięciu przycisku z menu
+ * @param exitButton odpowiada przyciskom zmaykajacym pojawiające sie okienka
+ * @param cont odpowiada elementowi <div> w którym sa umieszczone pozostałe <div>
+ *
+ */
+const menu = document.getElementsByClassName("menu");
+const numberButtonDiv = document.getElementById("phonebuttondiv");
+const body = document.getElementById("body");
+const displayingInfoFromMenu = document.getElementsByClassName("info");
+const exitButton = document.getElementsByClassName("exitbutton");
+const cont = document.getElementById("container");
+const numberButton = document.getElementById("button");
 
-body.onresize = function() {
+/**-----------------------------------------WYWOłANIA----------------------------------------------------------------**/
+
+const dispmenu = new DisplayMenu(menu, numberButtonDiv);
+const display = new DisplayOrHideMenuFrames(menu, displayingInfoFromMenu, exitButton, cont);
+display.showOrExitFrame();
+
+body.onresize = function () {
     dispmenu.hideOrDisplay();
 };
+
+
 
 
 
