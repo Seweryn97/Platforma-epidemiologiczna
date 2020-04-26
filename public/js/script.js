@@ -134,6 +134,55 @@ function DisplayOrHideMenuFrames(menu, displaydiv, exit, container) {
 }
 
 /**
+ *
+ * @param button opisuje przycisk z numerem infolonii
+ * @param username opisuje input do którego jest wpisywana nazwa skype
+ * @param skypenickframe opisuje okinko które się pojawia po kliknięciu @param button
+ * @param exitButton opisuje przysik zamykjący pojawiające sie okinko
+ * @constructor
+ */
+
+function EnableSkype(button , username, skypenickframe, exitButton) {
+    this.button = button;
+    this.username = username;
+    this.skypenickframe = skypenickframe;
+    this.exitButton = exitButton;
+    var self = this;
+
+    this.showSkypeNickFrame = function () {
+        this.button.onclick = function () {
+            self.skypenickframe.style.display = "block";
+        }
+    };
+
+    this.exitSkypeNickFrame = function () {
+        this.exitButton.onclick = function () {
+            self.skypenickframe.style.display = "none";
+        }
+
+    };
+
+    /**
+     *
+     */
+
+    this.setElement = function (elemntId,user, action) {
+        document.getElementById(elemntId).setAttribute("href", "skype:" + user.value + "?" + action);
+    };
+
+    function buildLinkRefs(){
+        self.setElement("call-btn", self.username, "call");
+    }
+
+    this.username.addEventListener("change",function () {
+        buildLinkRefs();
+    },false);
+    buildLinkRefs();
+
+
+}
+
+/**
  * @param menu odpowiada elementom <div>  z index.html o nazwie klasy "menu"
  * @param numberButtonDiv odpowiada elementowi <div>  z index.html o identyfikatorze "phonebuttondiv"
  * @param body odpowiada elementowi <body>
@@ -149,18 +198,23 @@ const displayingInfoFromMenu = document.getElementsByClassName("info");
 const exitButton = document.getElementsByClassName("exitbutton");
 const cont = document.getElementById("container");
 const numberButton = document.getElementById("button");
+const skypeNickFrame = document.getElementById("skypenick");
+const exitSkypeFrameButton = document.getElementById("miniexit");
+const userName = document.getElementById("inputtext");
 
 /**-----------------------------------------WYWOłANIA----------------------------------------------------------------**/
 
 const dispmenu = new DisplayMenu(menu, numberButtonDiv);
 const display = new DisplayOrHideMenuFrames(menu, displayingInfoFromMenu, exitButton, cont);
+const enableSkype = new EnableSkype(numberButton,  userName, skypeNickFrame, exitSkypeFrameButton);
+
 display.showOrExitFrame();
+enableSkype.showSkypeNickFrame();
+enableSkype.exitSkypeNickFrame();
 
 body.onresize = function () {
     dispmenu.hideOrDisplay();
 };
-
-
 
 
 
