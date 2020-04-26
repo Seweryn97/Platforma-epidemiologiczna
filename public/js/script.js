@@ -25,7 +25,7 @@ function DisplayMenu(menu, button) {
      * monitora czy tez nie
      */
     this.checkCorrectSize = function () {
-        return window.innerWidth >= screen.width * 0.8;
+        return window.innerWidth >= screen.width * 0.85;
     };
 
     /**
@@ -192,7 +192,7 @@ function EnableSkype(button , username, skypenickframe, exitButton) {
  *
  */
 const menu = document.getElementsByClassName("menu");
-const numberButtonDiv = document.getElementById("phonebuttondiv");
+const numberButtonDiv = document.getElementById("phone-button");
 const body = document.getElementById("body");
 const displayingInfoFromMenu = document.getElementsByClassName("info");
 const exitButton = document.getElementsByClassName("exitbutton");

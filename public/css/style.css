@@ -1,14 +1,20 @@
+h1{
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
 #container{
     background-color: 	#2b2727;
 }
 
-#westheaderdiv{
+#west-header{
     float: left;
     margin-left: auto;
     height: 100px;
     width: 300px;
 }
-#easteheaderdiv{
+#east-header{
     height: 100px;
     margin-left: 300px;
 }
@@ -29,7 +35,7 @@
     background-color: #e59400;
 }
 
-#phonebuttondiv{
+#phone-button{
     float: right;
     width: 450px;
     height: 100px;
@@ -41,11 +47,11 @@
     position: relative;
 
 }
-#animationdiv{
+#animation{
     height: 350px;
 }
 
-#maincontentdiv{
+#maincontent{
     height: 1000px;
 }
 
@@ -101,11 +107,6 @@
     cursor: pointer;
     background-color: #e59400;
 }
-h1{
-    text-align: center;
-    font-size: 25px;
-    color: white;
-}
 
 #skypenick{
     background-color: #2b2727;
@@ -142,7 +143,7 @@ h1{
     cursor: pointer;
 }
 
-#podajnicktext{
+#podaj-nick-text{
     color: white;
     text-align: center;
 }
@@ -169,6 +170,7 @@ h1{
 
 #statsdiv{
     width: 50%;
+    float: left;
 }
 
 #generalstats{
@@ -176,5 +178,101 @@ h1{
     border-style: solid;
     border-color: white;
     border-width: thin;
+}
+
+.showgeneralstats {
+    float: left;
+    margin-left: 110px;
+    animation-name: animinfo;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.showgeneralstats:nth-child(1){
+    margin-left: 50px;
+}
+
+
+#statsvisual1{
+    float: left;
+    background-color: crimson;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin-left: 30px;
+    margin-top: 10px;
+    animation-name: animstats;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+#statsvisual2{
+    float: left;
+    background-color: green;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin-left: 30px;
+    margin-top: 10px;
+    animation-name: animstats;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+#statsvisual3{
+    float: left;
+    background-color: black;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin-left: 30px;
+    margin-top: 10px;
+    animation-name: animstats;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+
+.infostat{
+    float: left;
+    color: white;
+    text-align: center;
+    vertical-align: center;
+    line-height: 50px;
+    font-size: 25px;
+}
+
+.countystats{
+    height: 35px;
+    border-style: solid;
+    border-color: white;
+    border-width: thin;
+}
+
+#map{
+    float: right;
+    width: 50%;
+}
+
+#mappl{
+   margin-left: 10%;
+
+}
+
+#mappl path{
+    fill: #2b2727;
+    stroke: white;
+}
+
+@keyframes animstats {
+    0% {height: 30px; width: 30px; margin-top: 10px; margin-left: 25px}
+    50% {height: 40px; width: 40px; margin-top: 5px ; margin-left: 25px}
+    100% {height: 30px; width: 30px; margin-top: 10px; margin-left: 25px}
+}
+
+@keyframes animinfo {
+    0% {margin-left:110px }
+    50% {margin-left: 105px}
+    100% {margin-left: 110px}
 }
 
