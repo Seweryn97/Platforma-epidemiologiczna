@@ -1,0 +1,278 @@
+h1{
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
+#container{
+    background-color: 	#2b2727;
+}
+
+#west-header{
+    float: left;
+    margin-left: auto;
+    height: 100px;
+    width: 300px;
+}
+#east-header{
+    height: 100px;
+    margin-left: 300px;
+}
+
+.menu{
+    float: left;
+    width: 250px;
+    height: 100px;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    vertical-align: middle;
+    line-height: 100px;
+}
+
+.menu:hover{
+    cursor: pointer;
+    background-color: #e59400;
+}
+
+#phone-button{
+    float: right;
+    width: 450px;
+    height: 100px;
+    font-size: 25px;
+    text-align: left;
+    vertical-align: middle;
+    line-height: 100px;
+    color: white;
+    position: relative;
+
+}
+#animation{
+    height: 350px;
+}
+
+#maincontent{
+    height: 1000px;
+}
+
+#footter{
+    height: 200px;
+}
+
+.info{
+    background-color: #2b2727;
+    display: none;
+    width: 500px;
+    height: 500px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+#button{
+    background-color: #e59400;
+    position: absolute;
+    height: 40px;
+    width: 150px;
+    top:30px;
+    left: 150px;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    color: white;
+    border-radius: 10px;
+
+}
+
+#button:hover{
+    cursor: pointer;
+}
+
+.exitbutton{
+    width: 20px;
+    height: 20px;
+    margin-top: 5%;
+    margin-left: 460px;
+    text-align: center;
+    color: white;
+}
+
+.exitbutton:hover{
+    cursor: pointer;
+    background-color: #e59400;
+}
+
+#skypenick{
+    background-color: #2b2727;
+    position: absolute;
+    display: none;
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: white;
+    top: 15%;
+    left: 80%;
+    margin-right: -50%;
+
+}
+#skypebutton{
+    background-color: #2b2727;
+    height: 35px;
+    width: 60px;
+    top: 70%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+    border-radius: 10px;
+    margin-left:70px;
+    position: absolute;
+    border-style: solid;
+    border-color: white;
+    color: white;
+}
+
+#skypebutton:hover{
+    background-color: #e59400;
+    cursor: pointer;
+}
+
+#podaj-nick-text{
+    color: white;
+    text-align: center;
+}
+
+#inputtext{
+    width: 100px;
+    height: 40px;
+    font-size: 30px;
+    margin-left: 50px;
+}
+
+#miniexit{
+    color: white;
+    margin-left:180px;
+    height: 15px;
+    width: 10px;
+    text-align: center;
+}
+
+#miniexit:hover{
+    cursor: pointer;
+    background-color: #e59400;
+}
+
+#statsdiv{
+    width: 50%;
+    float: left;
+}
+
+#generalstats{
+    height: 50px;
+    border-style: solid;
+    border-color: white;
+    border-width: thin;
+}
+
+.showgeneralstats {
+    float: left;
+    margin-left: 110px;
+    animation-name: animinfo;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.showgeneralstats:nth-child(1){
+    margin-left: 50px;
+}
+
+
+#statsvisual1{
+    float: left;
+    background-color: crimson;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin-left: 30px;
+    margin-top: 10px;
+    animation-name: animstats;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+#statsvisual2{
+    float: left;
+    background-color: green;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin-left: 30px;
+    margin-top: 10px;
+    animation-name: animstats;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+#statsvisual3{
+    float: left;
+    background-color: black;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin-left: 30px;
+    margin-top: 10px;
+    animation-name: animstats;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+
+.infostat{
+    float: left;
+    color: white;
+    text-align: center;
+    vertical-align: center;
+    line-height: 50px;
+    font-size: 25px;
+}
+
+.countystats{
+    height: 35px;
+    border-style: solid;
+    border-color: white;
+    border-width: thin;
+}
+
+#map{
+    float: right;
+    width: 50%;
+}
+
+#mappl{
+   margin-left: 10%;
+
+}
+
+#mappl path{
+    fill: #2b2727;
+    stroke: white;
+}
+
+@keyframes animstats {
+    0% {height: 30px; width: 30px; margin-top: 10px; margin-left: 25px}
+    50% {height: 40px; width: 40px; margin-top: 5px ; margin-left: 25px}
+    100% {height: 30px; width: 30px; margin-top: 10px; margin-left: 25px}
+}
+
+@keyframes animinfo {
+    0% {margin-left:110px }
+    50% {margin-left: 105px}
+    100% {margin-left: 110px}
+}
+
