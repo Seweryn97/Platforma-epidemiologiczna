@@ -192,6 +192,40 @@ function EnableSkype(button , username, skypenickframe, exitButton) {
 
 }
 
+
+/* funkcja odpowiedzialna za zmianę obrazków na stronie */
+
+function changeImage(img, id)
+{
+	
+	var i =0;
+	var flag = false;
+	var time = 0;
+	var interval = setInterval(function (){
+		if(i == 100) flag = true;
+		if(i == 0){
+			flag = false;
+			img[id].style.display = "block";
+			
+		}
+		img[id].style.opacity = "" + i*0.01;
+		
+		if(flag) i--;
+		else i++;
+		
+		time++;
+		
+		if (time % 200 == 0){
+			img[id].style.display = "none";
+			id++;
+		}
+		if (id == 3) id = 0;
+	
+		
+	},100);
+	
+}
+
 /**
  * @param menu odpowiada elementom <div>  z index.html o nazwie klasy "menu"
  * @param numberButtonDiv odpowiada elementowi <div>  z index.html o identyfikatorze "phonebuttondiv"
@@ -213,6 +247,7 @@ const exitSkypeFrameButton = document.getElementById("miniexit");
 const userName = document.getElementById("inputtext");
 const statsBox = document.getElementsByClassName("statsvisualbox");
 const generalStats = document.getElementById("generalstats");
+const image = document.getElementsByClassName("image");
 
 /**-----------------------------------------WYWOłANIA----------------------------------------------------------------**/
 
@@ -228,10 +263,8 @@ body.onresize = function () {
     hideorchange.hideOrChange();
 };
 
-
-
-
-
+var id = 0;
+changeImage(image,id);
 
 
 
