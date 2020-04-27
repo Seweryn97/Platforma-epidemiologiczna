@@ -11,8 +11,8 @@ h1{
 #west-header{
     float: left;
     margin-left: auto;
-    height: 100px;
-    width: 300px;
+    height: 100%;
+    width: 20%;
 }
 #east-header{
     height: 100px;
@@ -21,10 +21,10 @@ h1{
 
 .menu{
     float: left;
-    width: 250px;
-    height: 100px;
+    width: 20%;
+    height: 100%;
     text-align: center;
-    font-size: 25px;
+    font-size: 100%;
     color: white;
     vertical-align: middle;
     line-height: 100px;
@@ -37,9 +37,9 @@ h1{
 
 #phone-button{
     float: right;
-    width: 450px;
-    height: 100px;
-    font-size: 25px;
+    width: 30%;
+    height: 100%;
+    font-size: 100%;
     text-align: left;
     vertical-align: middle;
     line-height: 100px;
@@ -182,14 +182,18 @@ h1{
 
 .showgeneralstats {
     float: left;
-    margin-left: 110px;
-    animation-name: animinfo;
+    margin-left: 15%;
+	height:100%;
+	
+    /*animation-name: animinfo;
     animation-duration: 3s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite;*/
+	
+
 }
 
 .showgeneralstats:nth-child(1){
-    margin-left: 50px;
+    margin-left: 5%;
 }
 
 
@@ -221,7 +225,7 @@ h1{
 
 #statsvisual3{
     float: left;
-    background-color: black;
+    background-color: green;
     border-radius: 50%;
     height: 30px;
     width: 30px;
@@ -232,6 +236,11 @@ h1{
     animation-iteration-count: infinite;
 }
 
+.statsvisualbox{
+	float: left;
+	height:100%;
+}
+
 
 .infostat{
     float: left;
@@ -239,7 +248,8 @@ h1{
     text-align: center;
     vertical-align: center;
     line-height: 50px;
-    font-size: 25px;
+    font-size: 100%;
+	
 }
 
 .countystats{
@@ -271,8 +281,8 @@ h1{
 }
 
 @keyframes animinfo {
-    0% {margin-left:110px }
-    50% {margin-left: 105px}
-    100% {margin-left: 110px}
+    0% {margin-left:5% }
+    50% {margin-left: 10%}
+    100% {margin-left: 5%}
 }
 

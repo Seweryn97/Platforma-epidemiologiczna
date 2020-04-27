@@ -16,33 +16,43 @@
  *
  */
 
-function DisplayMenu(menu, button) {
+function HideOrChangeComponentsOnResize(menu, button, generalstats, statsbox) {
     this.menu = menu;
     this.button = button;
+	this.generalstats = generalstats;
+	this.statsbox = statsbox;
     /**
      * checkCorrectSize
      * @returns boolean lub false w zależności czy aktualna szerokość okna przegladarki przekrasza 80% szerokości ekranu
      * monitora czy tez nie
      */
     this.checkCorrectSize = function () {
-        return window.innerWidth >= screen.width * 0.85;
+        return window.innerWidth >= screen.width * 0.87;
     };
 
     /**
      * hideOrDisplay ustawia element display w zależności od przysłanej wielkoscli okna przeglądarki
      */
-    this.hideOrDisplay = function () {
+    this.hideOrChange = function () {
         let i;
         if (!this.checkCorrectSize()) {
             for (i = 0; i < menu.length; i++) {
                 this.menu[i].style.display = "none";
+				this.statsbox[i].style.height = "50%";
+				this.statsbox[i].style.float = "unset";
+				this.statsbox[i].style.marginTop = "50%";
             }
             this.button.style.display = "none";
+			this.generalstats.style.height="100px";
         } else {
             for (i = 0; i < menu.length; i++) {
                 this.menu[i].style.display = "";
+				this.statsbox[i].style.height = "100%";
+				this.statsbox[i].style.float = "left";
+				this.statsbox[i].style.marginTop = "unset";
             }
             this.button.style.display = "";
+			this.generalstats.style.height="50px";
         }
     }
 }
@@ -201,10 +211,12 @@ const numberButton = document.getElementById("button");
 const skypeNickFrame = document.getElementById("skypenick");
 const exitSkypeFrameButton = document.getElementById("miniexit");
 const userName = document.getElementById("inputtext");
+const statsBox = document.getElementsByClassName("statsvisualbox");
+const generalStats = document.getElementById("generalstats");
 
 /**-----------------------------------------WYWOłANIA----------------------------------------------------------------**/
 
-const dispmenu = new DisplayMenu(menu, numberButtonDiv);
+const hideorchange = new HideOrChangeComponentsOnResize(menu, numberButtonDiv,generalStats, statsBox);
 const display = new DisplayOrHideMenuFrames(menu, displayingInfoFromMenu, exitButton, cont);
 const enableSkype = new EnableSkype(numberButton,  userName, skypeNickFrame, exitSkypeFrameButton);
 
@@ -213,10 +225,8 @@ enableSkype.showSkypeNickFrame();
 enableSkype.exitSkypeNickFrame();
 
 body.onresize = function () {
-    dispmenu.hideOrDisplay();
+    hideorchange.hideOrChange();
 };
-
-
 
 
 
