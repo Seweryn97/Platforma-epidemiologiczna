@@ -10,9 +10,11 @@
  *
  * @param menu  przyslana tablice klas dotyczącą elementów znajdujących się w menu
  * @param button  przsyłany <div> z przyciskiem
+ * @param generalstats przysłany <div> w którym znajdują się ogólne statystyki dla kraju
+ * @param statsbox tablica <div> w której znajdują się wartości dla ( zachorowań, wyzdrowień i zgonów)
  * @constructor ustawia przysłane elementy
  *
- * Zadaniem klasy jest pokazywanie, lub ukrywanie paska menu w zależności od szeroko ści okna przeglądarki
+ * Zadaniem klasy jest pokazywanie, lub ukrywanie elementów w zależności od szeroko ści okna przeglądarki
  *
  */
 
@@ -23,7 +25,7 @@ function HideOrChangeComponentsOnResize(menu, button, generalstats, statsbox) {
 	this.statsbox = statsbox;
     /**
      * checkCorrectSize
-     * @returns boolean lub false w zależności czy aktualna szerokość okna przegladarki przekrasza 80% szerokości ekranu
+     * @returns boolean true lub false w zależności czy aktualna szerokość okna przegladarki przekrasza 80% szerokości ekranu
      * monitora czy tez nie
      */
     this.checkCorrectSize = function () {
@@ -31,7 +33,7 @@ function HideOrChangeComponentsOnResize(menu, button, generalstats, statsbox) {
     };
 
     /**
-     * hideOrDisplay ustawia element display w zależności od przysłanej wielkoscli okna przeglądarki
+     * hideOrChange ustawia element display w zależności od przysłanej wielkoscli okna przeglądarki
      */
     this.hideOrChange = function () {
         let i;
@@ -148,7 +150,7 @@ function DisplayOrHideMenuFrames(menu, displaydiv, exit, container) {
  * @param button opisuje przycisk z numerem infolonii
  * @param username opisuje input do którego jest wpisywana nazwa skype
  * @param skypenickframe opisuje okinko które się pojawia po kliknięciu @param button
- * @param exitButton opisuje przysik zamykjący pojawiające sie okinko
+ * @param exitButton opisuje przysik zamykjący pojawiające sie okienko skype
  * @constructor
  */
 
@@ -193,11 +195,11 @@ function EnableSkype(button , username, skypenickframe, exitButton) {
 }
 
 
-/* funkcja odpowiedzialna za zmianę obrazków na stronie */
+/* funkcja odpowiedzialna za zmianę w czasie rzeczywistym
+ obrazków na stronie */
 
 function changeImage(img, id)
 {
-	
 	var i =0;
 	var flag = false;
 	var time = 0;
@@ -205,9 +207,9 @@ function changeImage(img, id)
 		if(i == 100) flag = true;
 		if(i == 0){
 			flag = false;
-			img[id].style.display = "block";
-			
+			img[id].style.display = "block";	
 		}
+		
 		img[id].style.opacity = "" + i*0.01;
 		
 		if(flag) i--;
@@ -218,6 +220,7 @@ function changeImage(img, id)
 		if (time % 200 == 0){
 			img[id].style.display = "none";
 			id++;
+			time = 0;
 		}
 		if (id == 3) id = 0;
 	
@@ -227,13 +230,39 @@ function changeImage(img, id)
 }
 
 /**
+* funkcja odpowiedzilana za obsługę informacji pokzujących się po najechaniu ka konkretne województwo
+* wywołana w dokumencie html
+*/
+function showMapInfo(name){
+	
+	
+	var x = event.clientX;
+	var y = event.clientY;
+	var mapinfo = document.getElementById("interactivemapinfo");
+	mapinfo.style.display = "block";
+	mapinfo.style.top = y +"px";
+	mapinfo.style.left = x+"px";
+	mapinfo.innerHTML = name;
+	
+}
+function hideMapInfo(){
+	document.getElementById("interactivemapinfo").style.display = "none";
+}
+
+/**
  * @param menu odpowiada elementom <div>  z index.html o nazwie klasy "menu"
  * @param numberButtonDiv odpowiada elementowi <div>  z index.html o identyfikatorze "phonebuttondiv"
  * @param body odpowiada elementowi <body>
  * @param displayingInfoFromMenu odpowiada pojawiającym się okienkom po wcisnięciu przycisku z menu
  * @param exitButton odpowiada przyciskom zmaykajacym pojawiające sie okienka
  * @param cont odpowiada elementowi <div> w którym sa umieszczone pozostałe <div>
- *
+ * @param numberButton
+ * @param skypeNickFrame
+ * @param exitSkypeFrameButton
+ * @param userName
+ * @param statsBox
+ * @param generalStats
+ * @param image
  */
 const menu = document.getElementsByClassName("menu");
 const numberButtonDiv = document.getElementById("phone-button");
@@ -259,9 +288,11 @@ display.showOrExitFrame();
 enableSkype.showSkypeNickFrame();
 enableSkype.exitSkypeNickFrame();
 
+
 body.onresize = function () {
     hideorchange.hideOrChange();
 };
+
 
 var id = 0;
 changeImage(image,id);

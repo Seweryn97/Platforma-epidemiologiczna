@@ -55,12 +55,11 @@ h1{
     height: 800px;
 }
 
-
 .info{
     background-color: #2b2727;
     display: none;
-    width: 500px;
-    height: 500px;
+    width: 60%;
+    height: 80%;
     border-radius: 20px;
     border-style: solid;
     border-color: white;
@@ -69,6 +68,13 @@ h1{
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+	text-align:center;
+	font-size:20px;
+	color:white;
+}
+
+.info:nth-child(3){
+	text-align:left;
 }
 
 #button{
@@ -84,7 +90,6 @@ h1{
     line-height: 40px;
     color: white;
     border-radius: 10px;
-
 }
 
 #button:hover{
@@ -94,9 +99,12 @@ h1{
 .exitbutton{
     width: 20px;
     height: 20px;
-    margin-top: 5%;
-    margin-left: 460px;
+    margin-top: 3%;
+    margin-left: 90%;
     text-align: center;
+	border-radius:50%;
+	border:solid;
+	border-width:thin;
     color: white;
 }
 
@@ -256,6 +264,55 @@ h1{
     border-width: thin;
 }
 
+.regionname{
+	
+	float: left;
+    color: white;
+    text-align: center;
+    vertical-align: center;
+    line-height: 35px;
+    font-size: 20px;	
+}
+
+.regionconfirmed{
+	float:right;
+	height:100%;
+	width:5%;
+	border-radius:20%;
+	text-align:center;
+	vertical-align:center;
+	line-height:30px;
+	font-size:20px;
+	background-color:red;
+	color:white;
+}
+
+.regionrecoverd{
+	float:right;
+	height:100%;
+	width:5%;
+	border-radius:20%;
+	text-align:center;
+	vertical-align:center;
+	line-height:30px;
+	font-size:20px;
+	background-color:green;
+	color:white;
+}
+
+.regiondeath{
+	float:right;
+	height:100%;
+	width:5%;
+	border-radius:20%;
+	text-align:center;
+	vertical-align:center;
+	line-height:30px;
+	font-size:20px;
+	background-color:black;
+	color:white;
+}
+
 #map{
     float: right;
     width: 50%;
@@ -263,7 +320,6 @@ h1{
 
 #mappl{
    margin-left: 10%;
-
 }
 
 #mappl path{
@@ -271,6 +327,34 @@ h1{
     stroke: white;
 }
 
+#mappl path:hover{
+	fill:black;
+}
+
+/*#mappl path:hover + #interactivemapinfo{
+	display:block;
+	
+}*/
+#interactivemapinfo{
+	background-color: #2b2727;
+    display: none;
+    width: 15%;
+    height: 20%;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: white;
+	border-width:thin;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /*margin-right: -50%;
+    transform: translate(-50%, -50%);*/
+	text-align:center;
+	font-size:20px;
+	color:white;
+	
+	
+}
 
 
 #footer {
@@ -278,7 +362,6 @@ h1{
     text-align:left;
     color: white;
 	height:200px;
-
 }
 
 .image{
@@ -286,7 +369,6 @@ h1{
 	width:100%;
 	display:none;
 	opacity: 0;
-
 }
 
 @keyframes animstats {
