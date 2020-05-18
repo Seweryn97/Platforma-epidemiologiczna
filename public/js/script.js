@@ -230,7 +230,7 @@ function changeImage(img, id)
 }
 
 /**
-* funkcja odpowiedzilana za obsługę informacji pokzujących się po najechaniu ka konkretne województwo
+* funkcja odpowiedzilana za obsługę informacji pokzujących się po najechaniu na konkretne województwo
 * wywołana w dokumencie html
 */
 function showMapInfo(name){

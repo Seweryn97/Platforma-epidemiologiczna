@@ -193,7 +193,6 @@ h1{
     /*animation-name: animinfo;
     animation-duration: 3s;
     animation-iteration-count: infinite;*/
-	
 
 }
 
@@ -213,6 +212,10 @@ h1{
     animation-name: animstats;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+	color:white;
+	font-size:15px;
+	text-align:center;
+	line-height:30px;
 }
 
 #statsvisual2{
@@ -226,6 +229,9 @@ h1{
     animation-name: animstats;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+	color:white;
+	text-align:center;
+	line-height:30px;
 }
 
 #statsvisual3{
@@ -239,6 +245,9 @@ h1{
     animation-name: animstats;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+	color:white;
+	text-align:center;
+	line-height:30px;
 }
 
 .statsvisualbox{
@@ -262,16 +271,10 @@ h1{
     border-style: solid;
     border-color: white;
     border-width: thin;
-}
-
-.regionname{
+	font-size: 20px;
+	line-height:35px;
+	color: white;
 	
-	float: left;
-    color: white;
-    text-align: center;
-    vertical-align: center;
-    line-height: 35px;
-    font-size: 20px;	
 }
 
 .regionconfirmed{
@@ -331,10 +334,6 @@ h1{
 	fill:black;
 }
 
-/*#mappl path:hover + #interactivemapinfo{
-	display:block;
-	
-}*/
 #interactivemapinfo{
 	background-color: #2b2727;
     display: none;
@@ -355,7 +354,6 @@ h1{
 	
 	
 }
-
 
 #footer {
     background-color: #2b2727;
