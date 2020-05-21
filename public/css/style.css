@@ -11,8 +11,8 @@ h1{
 #west-header{
     float: left;
     margin-left: auto;
-    height: 100px;
-    width: 300px;
+    height: 100%;
+    width: 20%;
 }
 #east-header{
     height: 100px;
@@ -21,10 +21,10 @@ h1{
 
 .menu{
     float: left;
-    width: 250px;
-    height: 100px;
+    width: 20%;
+    height: 100%;
     text-align: center;
-    font-size: 25px;
+    font-size: 100%;
     color: white;
     vertical-align: middle;
     line-height: 100px;
@@ -37,9 +37,9 @@ h1{
 
 #phone-button{
     float: right;
-    width: 450px;
-    height: 100px;
-    font-size: 25px;
+    width: 30%;
+    height: 100%;
+    font-size: 100%;
     text-align: left;
     vertical-align: middle;
     line-height: 100px;
@@ -52,18 +52,14 @@ h1{
 }
 
 #maincontent{
-    height: 1000px;
-}
-
-#footter{
-    height: 200px;
+    height: 800px;
 }
 
 .info{
     background-color: #2b2727;
     display: none;
-    width: 500px;
-    height: 500px;
+    width: 60%;
+    height: 80%;
     border-radius: 20px;
     border-style: solid;
     border-color: white;
@@ -72,6 +68,13 @@ h1{
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+	text-align:center;
+	font-size:20px;
+	color:white;
+}
+
+.info:nth-child(3){
+	text-align:left;
 }
 
 #button{
@@ -87,7 +90,6 @@ h1{
     line-height: 40px;
     color: white;
     border-radius: 10px;
-
 }
 
 #button:hover{
@@ -97,9 +99,12 @@ h1{
 .exitbutton{
     width: 20px;
     height: 20px;
-    margin-top: 5%;
-    margin-left: 460px;
+    margin-top: 3%;
+    margin-left: 90%;
     text-align: center;
+	border-radius:50%;
+	border:solid;
+	border-width:thin;
     color: white;
 }
 
@@ -182,14 +187,17 @@ h1{
 
 .showgeneralstats {
     float: left;
-    margin-left: 110px;
-    animation-name: animinfo;
+    margin-left: 15%;
+	height:100%;
+	
+    /*animation-name: animinfo;
     animation-duration: 3s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite;*/
+
 }
 
 .showgeneralstats:nth-child(1){
-    margin-left: 50px;
+    margin-left: 5%;
 }
 
 
@@ -204,6 +212,10 @@ h1{
     animation-name: animstats;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+	color:white;
+	font-size:15px;
+	text-align:center;
+	line-height:30px;
 }
 
 #statsvisual2{
@@ -217,6 +229,9 @@ h1{
     animation-name: animstats;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+	color:white;
+	text-align:center;
+	line-height:30px;
 }
 
 #statsvisual3{
@@ -230,6 +245,14 @@ h1{
     animation-name: animstats;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+	color:white;
+	text-align:center;
+	line-height:30px;
+}
+
+.statsvisualbox{
+	float: left;
+	height:100%;
 }
 
 
@@ -239,7 +262,8 @@ h1{
     text-align: center;
     vertical-align: center;
     line-height: 50px;
-    font-size: 25px;
+    font-size: 100%;
+	
 }
 
 .countystats{
@@ -247,6 +271,49 @@ h1{
     border-style: solid;
     border-color: white;
     border-width: thin;
+	font-size: 20px;
+	line-height:35px;
+	color: white;
+	
+}
+
+.regionconfirmed{
+	float:right;
+	height:100%;
+	width:5%;
+	border-radius:20%;
+	text-align:center;
+	vertical-align:center;
+	line-height:30px;
+	font-size:20px;
+	background-color:red;
+	color:white;
+}
+
+.regionrecoverd{
+	float:right;
+	height:100%;
+	width:5%;
+	border-radius:20%;
+	text-align:center;
+	vertical-align:center;
+	line-height:30px;
+	font-size:20px;
+	background-color:green;
+	color:white;
+}
+
+.regiondeath{
+	float:right;
+	height:100%;
+	width:5%;
+	border-radius:20%;
+	text-align:center;
+	vertical-align:center;
+	line-height:30px;
+	font-size:20px;
+	background-color:black;
+	color:white;
 }
 
 #map{
@@ -256,12 +323,50 @@ h1{
 
 #mappl{
    margin-left: 10%;
-
 }
 
 #mappl path{
     fill: #2b2727;
     stroke: white;
+}
+
+#mappl path:hover{
+	fill:black;
+}
+
+#interactivemapinfo{
+	background-color: #2b2727;
+    display: none;
+    width: 15%;
+    height: 20%;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: white;
+	border-width:thin;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /*margin-right: -50%;
+    transform: translate(-50%, -50%);*/
+	text-align:center;
+	font-size:20px;
+	color:white;
+	
+	
+}
+
+#footer {
+    background-color: #2b2727;
+    text-align:left;
+    color: white;
+	height:200px;
+}
+
+.image{
+	height: 90%;
+	width:100%;
+	display:none;
+	opacity: 0;
 }
 
 @keyframes animstats {
@@ -271,8 +376,9 @@ h1{
 }
 
 @keyframes animinfo {
-    0% {margin-left:110px }
-    50% {margin-left: 105px}
-    100% {margin-left: 110px}
+    0% {margin-left:5% }
+    50% {margin-left: 10%}
+    100% {margin-left: 5%}
 }
+
 
