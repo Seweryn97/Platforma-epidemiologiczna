@@ -4,14 +4,24 @@ h1{
     color: white;
 }
 
+body{
+    overflow-x: hidden;
+    height: 100%;
+}
+
+html{
+    height: 600px;
+}
+
 #container{
-    background-color: 	#2b2727;
+    background-color: #2b2727;
+    height: 100%;
 }
 
 #west-header{
     float: left;
     margin-left: auto;
-    height: 100%;
+    height: 100px;
     width: 20%;
 }
 #east-header{
@@ -49,10 +59,15 @@ h1{
 }
 #animation{
     height: 350px;
+    width: 100%;
+    background-color: #323232;
 }
 
 #maincontent{
-    height: 800px;
+    height: 700px;
+    width: 100%;
+    background-color: #323232;
+
 }
 
 .info{
@@ -68,9 +83,10 @@ h1{
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-	text-align:center;
+	text-align: justify-all;
 	font-size:20px;
 	color:white;
+    overflow-y: scroll;
 }
 
 .info:nth-child(3){
@@ -102,7 +118,8 @@ h1{
     margin-top: 3%;
     margin-left: 90%;
     text-align: center;
-	border-radius:50%;
+    vertical-align: center;
+    line-height: 20px;
 	border:solid;
 	border-width:thin;
     color: white;
@@ -176,6 +193,7 @@ h1{
 #statsdiv{
     width: 50%;
     float: left;
+
 }
 
 #generalstats{
@@ -189,11 +207,7 @@ h1{
     float: left;
     margin-left: 15%;
 	height:100%;
-	
-    /*animation-name: animinfo;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;*/
-
+    display: inline;
 }
 
 .showgeneralstats:nth-child(1){
@@ -213,7 +227,7 @@ h1{
     animation-duration: 3s;
     animation-iteration-count: infinite;
 	color:white;
-	font-size:15px;
+    font-size: 100%;
 	text-align:center;
 	line-height:30px;
 }
@@ -231,6 +245,7 @@ h1{
     animation-iteration-count: infinite;
 	color:white;
 	text-align:center;
+    font-size: 100%;
 	line-height:30px;
 }
 
@@ -247,6 +262,7 @@ h1{
     animation-iteration-count: infinite;
 	color:white;
 	text-align:center;
+    font-size: 100%;
 	line-height:30px;
 }
 
@@ -285,7 +301,7 @@ h1{
 	text-align:center;
 	vertical-align:center;
 	line-height:30px;
-	font-size:20px;
+	font-size:1vw;
 	background-color:red;
 	color:white;
 }
@@ -298,7 +314,7 @@ h1{
 	text-align:center;
 	vertical-align:center;
 	line-height:30px;
-	font-size:20px;
+	font-size:1vw;
 	background-color:green;
 	color:white;
 }
@@ -311,7 +327,7 @@ h1{
 	text-align:center;
 	vertical-align:center;
 	line-height:30px;
-	font-size:20px;
+    font-size:1vw;
 	background-color:black;
 	color:white;
 }
@@ -346,10 +362,8 @@ h1{
     position: fixed;
     top: 50%;
     left: 50%;
-    /*margin-right: -50%;
-    transform: translate(-50%, -50%);*/
+    font-size: 1vw;
 	text-align:center;
-	font-size:20px;
 	color:white;
 	
 	
@@ -359,7 +373,7 @@ h1{
     background-color: #2b2727;
     text-align:left;
     color: white;
-	height:200px;
+	height:100%;
 }
 
 .image{
@@ -381,4 +395,27 @@ h1{
     100% {margin-left: 5%}
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 50px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    border-radius: 20px;
+}
 

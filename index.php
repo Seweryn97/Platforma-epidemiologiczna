@@ -10,7 +10,7 @@
     <title>Title</title>
 </head>
 <body id="body">
-<div id="container">
+<div id ="container">
     <div id="west-header"><img alt="icon" src="public/img/img.png"></div>
     <div id="east-header">
         <div class="menu">Informacje</div>
@@ -21,16 +21,22 @@
     </div>
     </div>
     <div id="animation">
-	<img alt="icon" class = "image" src="public/img/szumowski_foto.png">
-	<img alt="icon" class = "image" src="public/img/granica.png">
-	<img alt="icon" class = "image" src="public/img/virus.png">
+	    <img alt="icon" class = "image" src="public/img/szumowski_foto.png">
+	    <img alt="icon" class = "image" src="public/img/granica.png">
+	    <img alt="icon" class = "image" src="public/img/virus.png">
 	</div>
     <div id="maincontent">
         <div id="statsdiv">
             <div id ="generalstats">
-                <div class="showgeneralstats"><div class="infostat">Zachorowań:</div> <div class="statsvisualbox" ><div id="statsvisual1"><?php echo $potwierdzone[0]?></div></div></div>
-                <div class="showgeneralstats"><div class="infostat">Wyzdrowień:</div><div class="statsvisualbox" ><div id="statsvisual2"><?php echo $wyzdrowienia[0]?></div></div></div>
-                <div class="showgeneralstats"><div class="infostat">   Zgonów:</div><div class="statsvisualbox" ><div id="statsvisual3"><?php echo $zgony[0]?></div></div></div>
+                <div class="showgeneralstats"><div class="infostat">Zachorowań:</div>
+                    <div class="statsvisualbox" ><div id="statsvisual1"><?php echo $potwierdzone[0]?></div></div>
+                </div>
+                <div class="showgeneralstats"><div class="infostat">Wyzdrowień:</div>
+                    <div class="statsvisualbox" ><div id="statsvisual2"><?php echo $wyzdrowienia[0]?></div></div>
+                </div>
+                <div class="showgeneralstats"><div class="infostat">Zgonów:</div>
+                    <div class="statsvisualbox" ><div id="statsvisual3"><?php echo $zgony[0]?></div></div>
+                </div>
             </div>
             <div class="countystats">
 				Zachodniopomorskie
@@ -46,9 +52,9 @@
 			</div>
             <div class="countystats">
 				Warmińsko-mazurskie
-				<div class="regiondeath"><?php echo $zgony[3]?></div>
-				<div class="regionrecoverd"><?php echo $wyzdrowienia[3]?></div>
-				<div class="regionconfirmed"><?php echo $potwierdzone[3]?></div>	
+				<div class="regiondeath"></div>
+				<div class="regionrecoverd"></div>
+				<div class="regionconfirmed"></div>
 			</div>
             <div class="countystats">
 				Podlaskie
@@ -132,7 +138,7 @@
         <div id="map">
             <?xml version="1.0"?>
             <svg  version="1.2" viewbox="0 0 1000 948" width="75%" id="mappl"  xmlns="http://www.w3.org/2000/svg">
-			<a name="Warmińsko-mazurskie" id = "Warmińsko-mazurskie" onmouseenter="showMapInfo('Warmińsko-mazurskie')" onmouseleave="hideMapInfo()">
+			<a name="Warmińsko-mazurskie" id = "Warmińsko-mazurskie" onmouseenter="showMapInfo('Warmińsko-mazurskie','<?php echo $potwierdzone[1]?>','<?php echo $wyzdrowienia[1]?>','<?php echo $zgony[1]?>')" onmouseleave="hideMapInfo()">
                 <path  d="M866.3 77.7l0.3 1.3-2.5 8.3-5.7 6-6.6 4.5-22.2 3.1-9.4 13.3 10.1 13.5 0.5 5.1 1.1 4.7 5 5 10.6 14.8-0.4 7.9-4 7.8-3.5 9.8-5.7 6.1-27.8 17.3-9.6 10.9-17.2 11.9-7.5 1.1-3.1 1.3-2.9 2.4-6.3 2.2-14.2-0.9-7.3 3.2-12 1-2.5 1.3-2.8 5.6-4.1 2.9-4.5 0.7-8.9-0.8-7.5 9-9 2.9-9.5 0-7.3 4.2-6.3 1.3-7.2-0.1-3.6 2.9-3.3 4-13.9 8.1-3.7 1-3.8-0.4-3.1 2.5-1.6 5.6-2.6 3-3 1.5-7.5 1.4-31.5-4.9-0.9-1-0.6-1.5-1.6-1.1-1.7-0.3-3.9 1.2-2.6 5.1-2.9 2.4-3.4 0.9-1.5-15.2-5.1-13-5.6-3.9-11.4-3-10.6-6.5-7.6-2.5-1.9-0.1-2.4-1-1.5-2.2-3-5.8-2.5-7.1-8.6-16.9 14.7-27.5 3.5-3.8 4.2-2.7 8 0.6 5.6-2.5 0.2-2.7 1.2-1.9 1.6-4.8 1.8-1.9 1.2-2.2 0-2.8 0.4-2.8-5-1.3-9.8 0.8-3.6-1.8 2-6.6-2.6-3.6-5.1-0.6-4.8-2.9-3.4-5.5-1.8-7.3-0.3-3.3 1.6-2.4 4.4-4.4 1.5-2.8 1.2-3.1-1.1-4.3-2-3.6-2.2-6.5 0.7-5.8 2.4-2.8 8.8 1.1 2.4-0.3-0.4 1.6-0.9 1.3-0.4 0.8-0.4 2.1 0 2.5 1.4-1.6 1.7-4.4 0.4-0.5 0.8-1 2.5-4.1 2.6-2.5 2-1 0.6-0.2 7.7-4.9 1.7-0.7 3.9-0.5 6.4-4.8 1.4-0.5 1.4-0.2 0.6-0.6 0.4-0.8 0.8-2.2 1-1 0.8-0.6-0.1-0.9-0.4-2.1 1.5-0.1 59.2 3.1 57.5 3.1 35.6 1.9 43.2 2.3 55.4 3 42 2.2 6.8-2.3 1.9-1.5 2.5-4.7z" id="POL3139" name="Warmian-Masurian">
                 </path>
 			</a>
@@ -220,24 +226,24 @@
     </div>
 </div>
 <div class="info">
-    <div class="exitbutton">x</div>
+    <div class="exitbutton">X</div>
     <h1>Informacje</h1>
-	Jest to wirus RNA osłonięty błoną tłuszczową (lipidową). 
-	Dzięki takiej budowie można mu zapobiegać przez zastosowanie środków chemicznych, 
+	Jest to wirus RNA osłonięty błoną tłuszczową (lipidową).
+	Dzięki takiej budowie można mu zapobiegać przez zastosowanie środków chemicznych,
 	takich jak zwykłe mydło, alkohol min. 60-70%, preparaty do dezynfekcji i inne wirusobójcze.
-	Nowy koronawirus SARS-Cov-2 wywołuje chorobę o nazwie COVID-19. Najczęściej występujące objawy choroby to gorączka, 
-	kaszel, duszność, problemy z oddychaniem. Chorobie mogą towarzyszyć bóle mięśni i zmęczenie.Decyzję o sposobie leczenia podejmuje lekarz. 
-	Leczenie jest wyłącznie objawowe, czyli polega na leczeniu objawów choroby, takich jak gorączka lub problemy z oddychaniem. 
-	W literaturze naukowej opisuje się przypadki skutecznego wyleczenia pacjentów zakażonych koronawirusem za pomocą dotychczas znanych leków. 
+	Nowy koronawirus SARS-Cov-2 wywołuje chorobę o nazwie COVID-19. Najczęściej występujące objawy choroby to gorączka,
+	kaszel, duszność, problemy z oddychaniem. Chorobie mogą towarzyszyć bóle mięśni i zmęczenie.Decyzję o sposobie leczenia podejmuje lekarz.
+	Leczenie jest wyłącznie objawowe, czyli polega na leczeniu objawów choroby, takich jak gorączka lub problemy z oddychaniem.
+	W literaturze naukowej opisuje się przypadki skutecznego wyleczenia pacjentów zakażonych koronawirusem za pomocą dotychczas znanych leków.
 	13 marca 2020 r. Urząd Rejestracji Produktów Leczniczych, Wyrobów Medycznych i Produktów Biobójczych (URPL) wydał pozytywną decyzję w sprawie zmiany
-	do pozwolenia na dopuszczenie do obrotu dla leku zawierającego chlorochinę, polegającą na dodaniu nowego wskazania terapeutycznego: „Leczenie wspomagające w 
-	zakażeniach koronawirusami typu beta takimi jak SARS-CoV, MERS-CoV i SARS-CoV-2”. Jak dotąd nie są dostępne dane dotyczące skuteczności chlorochiny u chorych z 
-	COVID-19 poza Chińską Republiką Ludową. Producent zabezpieczył zapas leku na potrzeby Ministerstwa Zdrowia oraz Agencji Rezerw Materiałowych. Zgodnie z deklaracją producenta, 
-	chlorochina będzie dystrybuowana do pacjentów z COVID-19 zgodnie z dyspozycjami Ministra Zdrowia. Jeszcze przed decyzją URPL, po uzyskaniu zgody komisji bioetycznej, 
+	do pozwolenia na dopuszczenie do obrotu dla leku zawierającego chlorochinę, polegającą na dodaniu nowego wskazania terapeutycznego: „Leczenie wspomagające w
+	zakażeniach koronawirusami typu beta takimi jak SARS-CoV, MERS-CoV i SARS-CoV-2”. Jak dotąd nie są dostępne dane dotyczące skuteczności chlorochiny u chorych z
+	COVID-19 poza Chińską Republiką Ludową. Producent zabezpieczył zapas leku na potrzeby Ministerstwa Zdrowia oraz Agencji Rezerw Materiałowych. Zgodnie z deklaracją producenta,
+	chlorochina będzie dystrybuowana do pacjentów z COVID-19 zgodnie z dyspozycjami Ministra Zdrowia. Jeszcze przed decyzją URPL, po uzyskaniu zgody komisji bioetycznej,
 	chlorochinę w połączeniu z lopinawirem i rytonawirem zastosowano u chorych z ciężkim przebiegiem COVID-19 w Wojewódzkim Specjalistycznym Szpitalu im. Gromkowskiego we Wrocławiu.
 </div>
 <div class="info">
-    <div class="exitbutton">x</div>
+    <div class="exitbutton">X</div>
     <h1>Zasady postępowania</h1>
 	Jeśli masz takie objawy, jak:
 	<ul>
@@ -268,7 +274,7 @@
 	(w ramach teleporady) i stacja sanitarno-epidemiologiczna mają możliwość zlecenia dla Ciebie transportu sanitarnego.
 </div>
 <div class="info">
-    <div class="exitbutton">x</div>
+    <div class="exitbutton">X</div>
     <h1>Materiały wideo</h1>
 </div>
 <div id="interactivemapinfo">Cos</div>
