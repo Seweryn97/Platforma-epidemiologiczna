@@ -21,7 +21,8 @@
  *
  */
 
-function HideOrChangeComponentsOnResize(menu, button, generalstats, statsbox, mapinfo, countystats, showgeneralstats , map) {
+//"use strict"
+function HideOrChangeComponentsOnResize(menu, button, generalstats, statsbox, mapinfo, countystats, showgeneralstats , map, menuicon, smallwindowmenu) {
     this.menu = menu;
     this.button = button;
 	this.generalstats = generalstats;
@@ -30,15 +31,17 @@ function HideOrChangeComponentsOnResize(menu, button, generalstats, statsbox, ma
 	this.countystats = countystats;
 	this.showgeneralstats = showgeneralstats;
 	this.map = map;
+	this.menuicon = menuicon;
+	this.smallwindowmenu = smallwindowmenu;
 
     /**
      * @function menuDisappearSize
      * @returns boolean true lub false w zależności czy aktualna szerokość okna przegladarki przekrasza 1600.4
      * szerokości ekranu
      */
-    let menuDisappearSize = function () {
+    function menuDisappearSize () {
         return window.innerWidth >= 1600.4;
-    };
+    }
 
     /**
      *@function  hideOrChangeGenaralStatsAndMenuBar odpowiada za znikanie i pojawianie sie paska menu i zmianę ułożenia
@@ -56,6 +59,7 @@ function HideOrChangeComponentsOnResize(menu, button, generalstats, statsbox, ma
             }
             this.button.style.display = "none";
 			this.generalstats.style.height="100px";
+			this.menuicon.style.display = "inline";
         } else {
             for (i = 0; i < menu.length; i++) {
                 this.menu[i].style.display = "";
@@ -65,6 +69,8 @@ function HideOrChangeComponentsOnResize(menu, button, generalstats, statsbox, ma
             }
             this.button.style.display = "";
 			this.generalstats.style.height="50px";
+            this.menuicon.style.display = "none";
+            this.smallwindowmenu.style.display ="none";
         }
     };
 
@@ -129,18 +135,19 @@ function HideOrChangeComponentsOnResize(menu, button, generalstats, statsbox, ma
  *
  */
 
-function DisplayOrHideMenuFrames(menu, displaydiv, exit, container) {
+function ShowOrHideInfoFrames(menu, displaydiv, exit, container,smallmenu) {
     this.menu = menu;
     this.displaydiv = displaydiv;
     this.exit = exit;
     this.container = container;
+    this.smallmenu = smallmenu;
     const self = this;
 
     /**
      * showframe:
      * - wyśiwtla odpowiednie okienko po kliknieciu jednego z przycisków menu (displaydiv)
      * - zwieeksza kontrast pomiedzy wyświetlanym okienkiem a tłem
-     * - pozbawia przysików menu ich funkcjoinalności
+     * - pozbawia pozostalych przysików menu ich funkcjoinalności
      */
 
     this.showFrame = function (num) {
@@ -149,7 +156,9 @@ function DisplayOrHideMenuFrames(menu, displaydiv, exit, container) {
 
         for (let i = 0; i < this.menu.length; i++) {
             this.menu[i].onclick = null;
+            this.smallmenu[i].onclick =null;
             this.menu[i].style.pointerEvents = "none";
+            this.smallmenu[i].style.pointerEvents = "none";
         }
     };
 
@@ -168,7 +177,11 @@ function DisplayOrHideMenuFrames(menu, displaydiv, exit, container) {
             this.menu[i].onclick = function () {
                 self.showFrame(i);
             };
+            this.smallmenu[i].onclick = function () {
+                self.showFrame(i);
+            };
             self.menu[i].style.pointerEvents = "auto";
+            self.smallmenu[i].style.pointerEvents = "auto";
         }
     };
 
@@ -176,8 +189,11 @@ function DisplayOrHideMenuFrames(menu, displaydiv, exit, container) {
      * showCurrentFrame wywołuje funkję showFrame dla przycisków menu
      */
 
-    this.showCurrentFrame = function (num,e) {
+    this.showCurrentFrame = function (num) {
         this.menu[num].onclick = function () {
+            self.showFrame(num)
+        };
+        this.smallmenu[num].onclick = function () {
             self.showFrame(num)
         }
     };
@@ -238,12 +254,12 @@ function EnableSkype(button , username, skypenickframe, exitButton) {
      *@function setElement i buildRefs są odpowiedzialne za połaćzenie z aplikacją skype
      */
 
-    this.setElement = function (elemntId,user, action) {
+    function setElement (elemntId,user, action) {
         document.getElementById(elemntId).setAttribute("href", "skype:" + user.value + "?" + action);
-    };
+    }
 
     function buildLinkRefs(){
-        self.setElement("call-btn", self.username, "call");
+        setElement("call-btn", self.username, "call");
     }
 
     this.username.addEventListener("change",function () {
@@ -303,7 +319,6 @@ function showMapInfo(regionName,confirmed,recoverd, death) {
         "<ul><li>Zachorowań: " + confirmed+"</li>" +
         "<li>Wyzdrowień: " + recoverd+"</li>" +
         "<li>Zgonów:" + death+"</li></ul>"
-
 	
 }
 
@@ -312,6 +327,37 @@ function showMapInfo(regionName,confirmed,recoverd, death) {
  */
 function hideMapInfo(){
 	document.getElementById("interactivemapinfo").style.display = "none";
+}
+
+
+
+ function showSmallMenu(smallwindowmenu, menuicon){
+     this.flag = true;
+     this.i = 0;
+     self = this;
+     menuicon.onclick = function () {
+         console.log(self.flag);
+        if(self.flag){
+            smallwindowmenu.style.display="block";
+            var interval = setInterval(function () {
+                smallwindowmenu.style.width=self.i*0.2+"%";
+                if(smallwindowmenu.style.width === "20%"){
+                    clearInterval(interval);
+                }
+                self.i++;
+            },10);
+        }
+        if(!self.flag){
+            var interval1 = setInterval(function () {
+                smallwindowmenu.style.width=self.i*0.2+"%";
+                if(smallwindowmenu.style.width === "0%"){
+                    clearInterval(interval1);
+                }
+                self.i--;
+            },10);
+        }
+         self.flag = !self.flag;
+    }
 }
 
 /**
@@ -332,6 +378,7 @@ function hideMapInfo(){
  * @param countystats wiersze w tabeli dla kolejnych województw
  * @param showgeneralstats <div> w którch znajdują sie informacje np. Zachorowań, Wyzdrowień
  * @param map mapa
+ * @param menuicon odpowiada za icone menu w małym oknie
  */
 
 const id = 0;
@@ -352,12 +399,16 @@ const countystats = document.getElementsByClassName("countystats");
 const generalstats = document.getElementById("generalstats");
 const showgeneralstats = document.getElementsByClassName("showgeneralstats");
 const map = document.getElementById("map");
+const menuicon = document.getElementById("menuicon");
+const smallmenu = document.getElementsByClassName("smallmenu");
+const smallwindowmenu = document.getElementById("smallwindowmenu");
+
 
 /**-----------------------------------------WYWOłANIA----------------------------------------------------------------**/
 
 const hideorchange = new HideOrChangeComponentsOnResize(menu, numberButtonDiv,generalstats, statsBox, mapinfo,
-    countystats, showgeneralstats, map);
-const display = new DisplayOrHideMenuFrames(menu, displayingInfoFromMenu, exitButton, cont);
+    countystats, showgeneralstats, map,menuicon,smallwindowmenu);
+const display = new ShowOrHideInfoFrames(menu, displayingInfoFromMenu, exitButton, cont,smallmenu,menuicon);
 const enableSkype = new EnableSkype(numberButton,  userName, skypeNickFrame, exitSkypeFrameButton);
 
 display.showOrExitFrame();
@@ -371,9 +422,10 @@ body.onresize = function () {
 };
 hideorchange.hideOrChangeGeneralStatsAndMenuBar();
 hideorchange.chanageSizeInteractiveInfoBox();
+hideorchange.hideStatsBoxesAndChangeMapOnResize();
 
 changeImage(image,id);
-
+showSmallMenu(smallwindowmenu,menuicon);
 
 
 
