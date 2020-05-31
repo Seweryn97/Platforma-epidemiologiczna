@@ -253,7 +253,7 @@
 		gdzie lekarze określą dalszy tryb postępowania medycznego. Pod żadnym pozorem nie korzystaj ze środków komunikacji 
 		publicznej czy taksówek – w ten sposób narażasz innych na zakażenie.</li>
 	</ul>
-	Jeśli miałeś kontakt z osobą zakażoną koronawirusem lub chorą, to natychmiast zadzwoń do stacji sanitarno-epidemiologicznej
+	Jeśli miałeś kontakt z osobą zakażoną Covid19 lub chorą, to natychmiast zadzwoń do stacji sanitarno-epidemiologicznej
 	i powiadom o swojej sytuacji. Otrzymasz informację, jak masz dalej postępować.
 
 	Jeśli wróciłeś z zagranicy przed 15 marca, czyli przed wprowadzeniem obowiązkowej kwarantanny dla wszystkich podróżnych powracających 

@@ -345,20 +345,20 @@ function drawChart() {
         series: {
             // Gives each series an axis name that matches the Y-axis below.
             0: {
-                axis: 'Temps'
+                axis: 'Liczba przypadkow'
             },
             1: {
-                axis: 'Daylight'
+                axis: 'Liczba zgonow'
             }
         },
         axes: {
             // Adds labels to each axis; they don't have to match the axis names.
             y: {
                 Temps: {
-                    label: 'Temps (Celsius)'
+                    label: 'Liczba przypadkow'
                 },
                 Daylight: {
-                    label: 'Daylight'
+                    label: 'Liczba zgonow'
                 }
             }
         }
