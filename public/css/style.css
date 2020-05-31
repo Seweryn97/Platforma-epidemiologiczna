@@ -355,6 +355,12 @@ h1{
 	
 }
 
+#chart_div{
+    width: 5%;
+    height: 12%;
+    background-color:black;
+}
+
 #footer {
     background-color: #2b2727;
     text-align:left;

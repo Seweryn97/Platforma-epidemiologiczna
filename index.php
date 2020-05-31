@@ -15,7 +15,7 @@
     <div id="east-header">
         <div class="menu">Informacje</div>
         <div class ="menu">Zasady postępowania</div>
-        <div class="menu">Materiały wideo</div>
+        <div class="menu">Statystyki</div>
         <div id="phone-button">Infolinia:
             <div id="button">800 190 590</div>
     </div>
@@ -269,7 +269,11 @@
 </div>
 <div class="info">
     <div class="exitbutton">x</div>
-    <h1>Materiały wideo</h1>
+    <h1>Statystyki</h1>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <br><br>
+    <div id="chart_div"></div>
 </div>
 <div id="interactivemapinfo">Cos</div>
 </body>

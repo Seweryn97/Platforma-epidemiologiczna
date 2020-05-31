@@ -298,6 +298,129 @@ var id = 0;
 changeImage(image,id);
 
 
+/**-------------------------------------WYKRES---------------------------------**/
 
+
+google.charts.load('current', {
+    'packages': ['line', 'corechart']
+});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+
+    var chartDiv = document.getElementById('chart_div');
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('date', 'day');
+    data.addColumn('number', "Liczba przypadków");
+    data.addColumn('number', "Liczba zgonów");
+    data.addColumn('number', "Liczba wyzdrowień")
+
+    data.addRows([
+        [new Date(2020, 2, 19), -.5, 5.7, 10],
+        [new Date(2020, 2, 20), .4, 8.7, 11],
+        [new Date(2020, 2, 21), .5, 12, 13],
+        [new Date(2020, 2, 22), -.5, 5.7, 10],
+        [new Date(2020, 2, 23), .4, 8.7, 11],
+        [new Date(2020, 2, 24), .5, 12, 13],
+        [new Date(2020, 2, 25), -.5, 5.7, 10],
+        [new Date(2020, 2, 26), .4, 8.7, 11],
+        [new Date(2020, 2, 27), .5, 12, 13],
+        [new Date(2020, 2, 28), -.5, 5.7, 10],
+        [new Date(2020, 2, 29), .4, 8.7, 11],
+        [new Date(2020, 2, 30), .5, 12, 13],
+        [new Date(2020, 2, 31), -.5, 5.7, 10],
+
+
+
+    ]);
+
+    var materialOptions = {
+        chart: {
+            title: 'Covid 19'
+        },
+        width: 900,
+        height: 500,
+        series: {
+            // Gives each series an axis name that matches the Y-axis below.
+            0: {
+                axis: 'Temps'
+            },
+            1: {
+                axis: 'Daylight'
+            }
+        },
+        axes: {
+            // Adds labels to each axis; they don't have to match the axis names.
+            y: {
+                Temps: {
+                    label: 'Temps (Celsius)'
+                },
+                Daylight: {
+                    label: 'Daylight'
+                }
+            }
+        }
+    };
+
+    var classicOptions = {
+        title: 'Covid 19',
+        width: 900,
+        height: 500,
+        // Gives each series an axis that matches the vAxes number below.
+        series: {
+            0: {
+                targetAxisIndex: 0
+            },
+            1: {
+                targetAxisIndex: 1
+            },
+            2: {
+                targetAxisIndex: 2
+            }
+        },
+        vAxes: {
+            // Adds titles to each axis.
+            0: {
+                title: 'Liczba przypadkow'
+            },
+            1: {
+                title: 'Liczba zgonow'
+            },
+            2: {
+                title: 'Liczba wyzdrowien'
+            }
+        },
+        hAxis: {
+            ticks: [new Date(2014, 0), new Date(2014, 1), new Date(2014, 2), new Date(2014, 3),
+                new Date(2014, 4), new Date(2014, 5), new Date(2014, 6), new Date(2014, 7),
+                new Date(2014, 8), new Date(2014, 9), new Date(2014, 10), new Date(2014, 11)
+            ]
+        },
+        vAxis: {
+            viewWindow: {
+                max: 90
+            }
+        }
+    };
+
+    function drawMaterialChart() {
+        var materialChart = new google.charts.Line(chartDiv);
+        materialChart.draw(data, materialOptions);
+
+
+    }
+
+    function drawClassicChart() {
+        var classicChart = new google.visualization.LineChart(chartDiv);
+        classicChart.draw(data, classicOptions);
+
+
+    }
+
+    drawMaterialChart();
+
+}
 
 
