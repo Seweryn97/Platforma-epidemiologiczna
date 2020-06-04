@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <link href="public/css/style.css" rel="stylesheet" type="text/css">
     <script src="public/js/script.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <title>Title</title>
 </head>
 <body id="body">
@@ -50,13 +51,13 @@
 				Zachodniopomorskie
 				<div class="regiondeath"><?php echo $zgony[1]?></div>
 				<div class="regionrecoverd"><?php echo $wyzdrowienia[1]?></div>
-				<div class="regionconfirmed"><?php echo $potwierdzone[1]?></div>	
+				<div class="regionconfirmed"><?php echo $potwierdzone[1]?></div>
 			</div>
             <div class="countystats">
 				Pomorskie
 				<div class="regiondeath"><?php echo $zgony[2]?></div>
 				<div class="regionrecoverd"><?php echo $wyzdrowienia[2]?></div>
-				<div class="regionconfirmed"><?php echo $potwierdzone[2]?></div>	
+				<div class="regionconfirmed"><?php echo $potwierdzone[2]?></div>
 			</div>
             <div class="countystats">
 				Warmińsko-mazurskie
@@ -263,27 +264,29 @@
 	Jeśli masz takie objawy:
 	<ul>
 		<li>zadzwoń natychmiast do najbliższej stacji sanitarno-epidemiologicznej i powiedz o swoich objawach;</li>
-		<li>własnym środkiem transportu pojedź do szpitala z oddziałem zakaźnym lub oddziałem obserwacyjno-zakaźnym, 
-		gdzie lekarze określą dalszy tryb postępowania medycznego. Pod żadnym pozorem nie korzystaj ze środków komunikacji 
+		<li>własnym środkiem transportu pojedź do szpitala z oddziałem zakaźnym lub oddziałem obserwacyjno-zakaźnym,
+		gdzie lekarze określą dalszy tryb postępowania medycznego. Pod żadnym pozorem nie korzystaj ze środków komunikacji
 		publicznej czy taksówek – w ten sposób narażasz innych na zakażenie.</li>
 	</ul>
 	Jeśli miałeś kontakt z osobą zakażoną koronawirusem lub chorą, to natychmiast zadzwoń do stacji sanitarno-epidemiologicznej
 	i powiadom o swojej sytuacji. Otrzymasz informację, jak masz dalej postępować.
 
-	Jeśli wróciłeś z zagranicy przed 15 marca, czyli przed wprowadzeniem obowiązkowej kwarantanny dla wszystkich podróżnych powracających 
-	do Polski, i obecnie nie jesteś objęty obowiązkową kwarantanną i nie masz objawów choroby, mimo wszystko przez 14 dni od powrotu do kraju 
-	kontroluj codziennie swój stan zdrowia. Mierz temperaturę, zwróć uwagę na to, czy kaszlesz albo czy masz trudności z oddychaniem. 
+	Jeśli wróciłeś z zagranicy przed 15 marca, czyli przed wprowadzeniem obowiązkowej kwarantanny dla wszystkich podróżnych powracających
+	do Polski, i obecnie nie jesteś objęty obowiązkową kwarantanną i nie masz objawów choroby, mimo wszystko przez 14 dni od powrotu do kraju
+	kontroluj codziennie swój stan zdrowia. Mierz temperaturę, zwróć uwagę na to, czy kaszlesz albo czy masz trudności z oddychaniem.
 	Ogranicz kontakt z innymi. Pamiętaj, że możesz przechodzić chorobę bezobjawowo i możesz zarażać innych.
 
-	Jeśli tylko zaobserwujesz któryś z objawów choroby, zadzwoń natychmiast do stacji sanitarno-epidemiologicznej. Każdy pacjent manifestujący 
-	objawy ostrej infekcji dróg oddechowych (gorączka powyżej 38°C wraz z kaszlem lub dusznością) w powiązaniu z kryteriami epidemiologicznymi 
-	powinien ponadto trafić do oddziału zakaźnego lub obserwacyjno-zakaźnego. Jeśli zaobserwujesz takie objawy, własnym środkiem transportu pojedź 
-	do szpitala z oddziałem zakaźnym lub oddziałem obserwacyjno-zakaźnym. Jeśli nie możesz dotrzeć do szpitala własnym transportem, to lekarz POZ 
+	Jeśli tylko zaobserwujesz któryś z objawów choroby, zadzwoń natychmiast do stacji sanitarno-epidemiologicznej. Każdy pacjent manifestujący
+	objawy ostrej infekcji dróg oddechowych (gorączka powyżej 38°C wraz z kaszlem lub dusznością) w powiązaniu z kryteriami epidemiologicznymi
+	powinien ponadto trafić do oddziału zakaźnego lub obserwacyjno-zakaźnego. Jeśli zaobserwujesz takie objawy, własnym środkiem transportu pojedź
+	do szpitala z oddziałem zakaźnym lub oddziałem obserwacyjno-zakaźnym. Jeśli nie możesz dotrzeć do szpitala własnym transportem, to lekarz POZ
 	(w ramach teleporady) i stacja sanitarno-epidemiologiczna mają możliwość zlecenia dla Ciebie transportu sanitarnego.
 </div>
 <div class="info">
     <div class="exitbutton">X</div>
-    <h1>Materiały wideo</h1>
+    <h1>Statystyki</h1>
+    <div class="infogram-embed" data-id="feda565b-e10d-4de9-913a-372c82bc0e0e" data-type="interactive" data-title="Line Chart"></div><script>!function(e,i,n,s){var t="InfogramEmbeds",d=e.getElementsByTagName("script")[0];if(window[t]&&window[t].initialized)window[t].process&&window[t].process();else if(!e.getElementById(n)){var o=e.createElement("script");o.async=1,o.id=n,o.src="https://e.infogram.com/js/dist/embed-loader-min.js",d.parentNode.insertBefore(o,d)}}(document,0,"infogram-async");</script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/feda565b-e10d-4de9-913a-372c82bc0e0e" style="color:#989898!important;text-decoration:none!important;" target="_blank">Line Chart</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div>
+
 </div>
 <div id="interactivemapinfo">Cos</div>
 </body>
