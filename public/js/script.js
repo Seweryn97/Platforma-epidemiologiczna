@@ -14,7 +14,9 @@
  * @param mapinfo <div> pojawiający się po najechaniu na dane województwo
  * @param countystats
  * @param showgeneralstats
- * @param map
+ * @param map mapa
+ * @param menuicon ikona menu w mniejszym oknie
+ * @param smallwindowmenu pojawiające się okno z opcjamio menu po kliknięciu w ikone menu
  * @constructor ustawia przysłane elementy
  *
  * Zadaniem klasy jest pokazywanie, lub ukrywanie elementów w zależności od szerokości okna przeglądarki
@@ -35,7 +37,7 @@ function HideOrChangeComponentsOnResize(menu, button, generalstats, statsbox, ma
 	this.smallwindowmenu = smallwindowmenu;
 
     /**
-     * @function menuDisappearSize
+     * @function menuDisappearSize zwraca wartość szerokości okna, dla której powinny znikac opcje mneu
      * @returns boolean true lub false w zależności czy aktualna szerokość okna przegladarki przekrasza 1600.4
      * szerokości ekranu
      */
@@ -129,6 +131,7 @@ function HideOrChangeComponentsOnResize(menu, button, generalstats, statsbox, ma
  * @param displaydiv  elementy odpowiadjące wyswietlanym oknom po wciśnięciu przycisku menu
  * @param exit  element odpowiedzialny za wyłącznie okienka włączengo przez przycisk z menu
  * @param container <div> container
+ * @param smallmenu wysuwające się okno menu z opcjami
  * @constructor ustawia przysłane elementy
  *
  * Zadaniem klasy jest obsługa zdarzeń menu
@@ -221,7 +224,7 @@ function ShowOrHideInfoFrames(menu, displaydiv, exit, container,smallmenu) {
  * @param username opisuje input do którego jest wpisywana nazwa skype
  * @param skypenickframe opisuje okinko które się pojawia po kliknięciu @param button
  * @param exitButton opisuje przysik zamykjący pojawiające sie okienko skype
- * @constructor
+ * @constructor ustawia parametry
  */
 
 function EnableSkype(button , username, skypenickframe, exitButton) {
@@ -329,7 +332,13 @@ function hideMapInfo(){
 	document.getElementById("interactivemapinfo").style.display = "none";
 }
 
-
+/**
+ *
+ * @param smallwindowmenu wysuwające się okno z opcjami menu
+ * @param menuicon ikona menu w małym oknie
+ *
+ * @function showSmallMenu funkcja odpowiedzialna za wysuwanie się okna z opcjami menu
+ */
 
  function showSmallMenu(smallwindowmenu, menuicon){
      this.flag = true;
