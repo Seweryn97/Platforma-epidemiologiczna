@@ -348,9 +348,12 @@ function hideMapInfo(){
             },10);
         }
         if(!self.flag){
+
             var interval1 = setInterval(function () {
                 smallwindowmenu.style.width=self.i*0.2+"%";
                 if(smallwindowmenu.style.width === "0%"){
+                    self.smallwindowmenu.style.display = "none";
+
                     clearInterval(interval1);
                 }
                 self.i--;
