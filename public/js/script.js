@@ -51,7 +51,7 @@ function HideOrChangeComponentsOnResize(menu, button, generalstats, statsbox, ma
      *
      */
      this.hideOrChangeGeneralStatsAndMenuBar = function () {
-        let i;
+        var i;
         if (!menuDisappearSize()) {
             for (i = 0; i < menu.length; i++) {
                 this.menu[i].style.display = "none";
@@ -102,20 +102,20 @@ function HideOrChangeComponentsOnResize(menu, button, generalstats, statsbox, ma
 
     this.hideStatsBoxesAndChangeMapOnResize = function () {
         if(window.innerWidth<800){
-            for(let i = 0 ; i < this.countystats.length ; i++){
+            for(var i = 0 ; i < this.countystats.length ; i++){
                 this.countystats[i].style.display = "none";
             }
-            for(let i = 0 ; i < this.showgeneralstats.length ; i++){
+            for(var i = 0 ; i < this.showgeneralstats.length ; i++){
                 this.showgeneralstats[i].style.display = "none";
             }
             this.generalstats.style.display = "none";
             this.map.style.width = "100%";
         }
         else if(window.innerWidth>800){
-            for(let i = 0 ; i < this.countystats.length ; i++){
+            for(var i = 0 ; i < this.countystats.length ; i++){
                 this.countystats[i].style.display = "block";
             }
-            for(let i = 0 ; i < this.showgeneralstats.length ; i++){
+            for(var i = 0 ; i < this.showgeneralstats.length ; i++){
                 this.showgeneralstats[i].style.display = "inline";
             }
             this.generalstats.style.display = "";
@@ -144,7 +144,7 @@ function ShowOrHideInfoFrames(menu, displaydiv, exit, container,smallmenu) {
     this.exit = exit;
     this.container = container;
     this.smallmenu = smallmenu;
-    const self = this;
+    var self = this;
 
     /**
      * showframe:
@@ -157,7 +157,7 @@ function ShowOrHideInfoFrames(menu, displaydiv, exit, container,smallmenu) {
         this.displaydiv[num].style.display = "block";
         this.container.style.opacity = "0.6";
 
-        for (let i = 0; i < this.menu.length; i++) {
+        for (var i = 0; i < this.menu.length; i++) {
             this.menu[i].onclick = null;
             this.smallmenu[i].onclick =null;
             this.menu[i].style.pointerEvents = "none";
@@ -176,7 +176,7 @@ function ShowOrHideInfoFrames(menu, displaydiv, exit, container,smallmenu) {
         this.displaydiv[num].style.display = "none";
         this.container.style.opacity = "unset";
 
-        for (let i = 0; i < this.menu.length; i++) {
+        for (var i = 0; i < this.menu.length; i++) {
             this.menu[i].onclick = function () {
                 self.showFrame(i);
             };
@@ -212,7 +212,7 @@ function ShowOrHideInfoFrames(menu, displaydiv, exit, container,smallmenu) {
     };
 
     this.showOrExitFrame = function () {
-        for (let i = 0; i < this.menu.length; i++) {
+        for (var i = 0; i < this.menu.length; i++) {
             this.showCurrentFrame(i);
             this.exitCurrentFrame(i)
         }
@@ -393,35 +393,35 @@ function hideMapInfo(){
  * @param menuicon odpowiada za icone menu w małym oknie
  */
 
-const id = 0;
-const menu = document.getElementsByClassName("menu");
-const numberButtonDiv = document.getElementById("phone-button");
-const body = document.getElementById("body");
-const displayingInfoFromMenu = document.getElementsByClassName("info");
-const exitButton = document.getElementsByClassName("exitbutton");
-const cont = document.getElementById("container");
-const numberButton = document.getElementById("button");
-const skypeNickFrame = document.getElementById("skypenick");
-const exitSkypeFrameButton = document.getElementById("miniexit");
-const userName = document.getElementById("inputtext");
-const statsBox = document.getElementsByClassName("statsvisualbox");
-const image = document.getElementsByClassName("image");
-const mapinfo = document.getElementById("interactivemapinfo");
-const countystats = document.getElementsByClassName("countystats");
-const generalstats = document.getElementById("generalstats");
-const showgeneralstats = document.getElementsByClassName("showgeneralstats");
-const map = document.getElementById("map");
-const menuicon = document.getElementById("menuicon");
-const smallmenu = document.getElementsByClassName("smallmenu");
-const smallwindowmenu = document.getElementById("smallwindowmenu");
+var id = 0;
+var menu = document.getElementsByClassName("menu");
+var numberButtonDiv = document.getElementById("phone-button");
+var body = document.getElementById("body");
+var displayingInfoFromMenu = document.getElementsByClassName("info");
+var exitButton = document.getElementsByClassName("exitbutton");
+var cont = document.getElementById("container");
+var numberButton = document.getElementById("button");
+var skypeNickFrame = document.getElementById("skypenick");
+var exitSkypeFrameButton = document.getElementById("miniexit");
+var userName = document.getElementById("inputtext");
+var statsBox = document.getElementsByClassName("statsvisualbox");
+var image = document.getElementsByClassName("image");
+var mapinfo = document.getElementById("interactivemapinfo");
+var countystats = document.getElementsByClassName("countystats");
+var generalstats = document.getElementById("generalstats");
+var showgeneralstats = document.getElementsByClassName("showgeneralstats");
+var map = document.getElementById("map");
+var menuicon = document.getElementById("menuicon");
+var smallmenu = document.getElementsByClassName("smallmenu");
+var smallwindowmenu = document.getElementById("smallwindowmenu");
 
 
 /**-----------------------------------------WYWOłANIA----------------------------------------------------------------**/
 
-const hideorchange = new HideOrChangeComponentsOnResize(menu, numberButtonDiv,generalstats, statsBox, mapinfo,
+var hideorchange = new HideOrChangeComponentsOnResize(menu, numberButtonDiv,generalstats, statsBox, mapinfo,
     countystats, showgeneralstats, map,menuicon,smallwindowmenu);
-const display = new ShowOrHideInfoFrames(menu, displayingInfoFromMenu, exitButton, cont,smallmenu,menuicon);
-const enableSkype = new EnableSkype(numberButton,  userName, skypeNickFrame, exitSkypeFrameButton);
+var display = new ShowOrHideInfoFrames(menu, displayingInfoFromMenu, exitButton, cont,smallmenu,menuicon);
+var enableSkype = new EnableSkype(numberButton,  userName, skypeNickFrame, exitSkypeFrameButton);
 
 display.showOrExitFrame();
 enableSkype.showSkypeNickFrame();
