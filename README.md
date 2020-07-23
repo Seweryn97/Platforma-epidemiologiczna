@@ -23,4 +23,7 @@ This project is simple Platform which provides information on COVID - 19. On use
 ## Setup
 To setup the project download XAMPP and run Apache and MySQL actions
 
-![A](./Readme_img/github2.png)
+## Images
+
+![Graph](./Readme_img/github2.png)
+![USer_Panel](./Readme_img/github.png)
