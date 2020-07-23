@@ -22,3 +22,5 @@ This project is simple Platform which provides information on COVID - 19. On use
 
 ## Setup
 To setup the project download XAMPP and run Apache and MySQL actions
+
+![User panel](Platforma-epidemiologiczna/Readme_img/githuhub.png)
