@@ -8,4 +8,7 @@
 * [Setup](#setup)
 
 ## General info
-This project is simple Lorem ipsum dolor generator.
+This project is simple Platform which provides information on COVID - 19. On user panel are:
+* interacitive map of Poland 
+* table with confirmed cases, recovered and detahs
+* menu bar with informations 
