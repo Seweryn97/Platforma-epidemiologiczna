@@ -26,4 +26,4 @@ To setup the project download XAMPP and run Apache and MySQL actions
 ## Images
 
 ![Graph](./Readme_img/github2.png)
-![USer_Panel](./Readme_img/githuhub.png)
+![User_Panel](./Readme_img/githuhub.png)
